@@ -1,0 +1,163 @@
+\documentclass{article}
+\usepackage[top=2cm,right=4cm,left=4cm]{geometry}
+\usepackage{textcomp}
+\usepackage[utf8x]{inputenc}
+\usepackage{multicol}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{adforn}
+\usepackage[rflt]{floatflt}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+
+\input mycom.tex
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows,calc,shapes,decorations.pathreplacing,backgrounds}
+\pgfplotsset{compat=1.13}
+\parindent=0cm
+
+\title{\sc Ejercicios resueltos de \\ Cálculo Vectorial}
+\author{\adftripleflourishleft \,\,\, by Luis Diego Aguilar S. \,\,\,\adftripleflourishright}
+\date{}
+
+\begin{document}
+
+\maketitle
+\vspace{-1cm}
+\bc\rule{50pt}{0.4pt}\ec
+\vs\vp
+
+\benu
+\item Sea $f(x,y,z)=x^2+y^2+100$ la temperatura en cada punto de la esfera $x^2+y^2+z^2=50$. Calcular las temperaturas máxima y mínima sobre los puntos de la curva de intersección de la esfera con el plano $x=z$. \vs
+
+\subsection*{\bf Solución}
+
+Sea $R=\{(x, y, z) \in \R^3:x^2+y^2+z^2 < 50\}$. El gradiente de $F$ es $\nabla\cdot T=(2x,2y,0)$, por tanto los puntos críticos son elementos del conjunto $$P=\left\{(0,0,z)\in \R^3:z < \abs{\sqrt{50}}\right\}$$
+
+Entonces, 
+
+$$T(0,0,z)=100\leq T(x,y,z), \forall (x,y,z)\in R$$ 
+
+\vs
+
+Entonces se concluye que en cualquier punto crítico la temperatura es mínima. \\
+
+Para buscar un punto en el que la temperatura sea máxima se estudian los puntos frontera: $Fr(R) = \{(x, y, z) \in \R^3: x^2=50-y^2-z^2\}$. En esos puntos la función $T|_{Fr(T)}=100+50−y^2−z^2+y^2=150-z^2$. Así que cualquier punto de la forma $(\sqrt{50-y^2},y,0)$, $T$ alcanza un máximo. Además, la intersección entre la esfera y el plano es el conjunto 
+
+$$C=\{(x, y, z)\in \R^3:2x^2+y^2=50, z = x\}$$
+
+\vs
+
+La función $T$ para esos puntos: $T|_C=100+x^2+50−2x^2=150−x^2$. Por tanto, la temperatura máxima se alcanza en los puntos $(0, \pm 5\sqrt2,0)$ (puntos críticos de $T_C$ con un valor de $150$.
+
+\newpage
+
+\item Halle la longitud del arco de la curva descrita por la trayectoria $$\lambda(t)=(6t^3,-2t^3,-3t^3) \mbox{ para } 0\leq t\leq 3$$
+
+\subsection*{\bf Solución}
+
+Tenemos que la longitud de la curva de la trayectoria dada se calcula mediante
+
+\begin{align*} 
+L(\lambda) & =\int_0^3\sqrt{[(6t^3)^{\prime}]^2+[(-2t^3)^{\prime}]^2+[(-3t^3)^{\prime}]^2}\,dt \\ & =\int_0^3\sqrt{[18t^2]^2+[-6t^2]^2+[-9t^2]^2}\,dt \\ 
+&=\int_0^3\sqrt{324t^4+36t^4+81t^4}\,dt \\ 
+& =\int_0^3\sqrt{441t^4}\,dt \\ & =\int_0^3 21t^4\,dt \\ 
+& = 21\cdot\frac13 (t^3)_{t=0}^{t=3} \\ 
+& =189 \; (u.\ell.)
+\end{align*} \vs
+
+\item Calcule el rotacional y la divergencia del campo vectorial de $F:\R^3\to \R^3$ dado por $$F(x,y,z)=(3x^2+4y,2x^2y+5z,3x+4y+5z^3)$$
+
+\subsection*{\bf Solución}
+
+\subsection*{\bf A. Rotacional}
+
+$$\nabla\times F\;=\;\begin{array}{|ccc|}\pmb i  & \pmb j & \pmb k \\  & \phantom{} &  \\ \displaystyle\frac{\partial}{\partial x} & \displaystyle\frac{\partial}{\partial y} & \displaystyle\frac{\partial}{\partial z} \\ &  & \\ \quad 3x^2+4y   & 2x^2y+5z & 3x+4y+5z^3 \quad \end{array} $$
+
+\begin{multline*}
+\nabla\times F = \left(\frac{\partial}{ \partial y}(3x+4y+5z^3)-\frac{\partial }{\partial z}(2x^2y+5z), \frac{\partial}{\partial z}(3x^2+4y)-\frac{\partial}{\partial x}(3x+4y+5z^3),\right.
+\end{multline*}
+
+\begin{align*}
+& \left. \frac{\partial}{\partial x}(2x^2y+5z)-\frac{\partial}{\partial y}(3x^2+4y)\right) \\ 
+& =(4-5,0-3,4xy-4) \\ 
+& =(1,-3,4(xy-1)) \\ 
+& =\pmb{i}-3\,\pmb{j}+4(xy-1)\,\pmb{k} \end{align*}
+
+\subsection*{\bf B. Divergencia}
+
+\begin{align*}
+\nabla\cdot F 
+& = \frac{\partial}{\partial x}(3x^2+4y)+\frac{\partial}{\partial y}(2x^2y+5z)+\frac{\partial}{\partial z}(3x+4y+5z^3)\\
+& =6x+2x^2+15z^2
+\end{align*}\vs
+
+\item Calcular la integral $\displaystyle\iint_D\frac{xe^{2y}}{4-y}\,dy\,dx$ donde $D$ es la región del plano limitada por los ejes coordenados y la curva $y=4-x^2$. \vs
+
+\subsection*{\bf Solución}
+
+Podemos tomar la región de integración en el cuadrante positivo. Calculando las intersecciones de la parábola con los ejes coordenados $y=0$ y $x=0$, se tiene que $4-x^2=0\Longrightarrow x=\pm 2$ (se toma $x=2$). Luego $f(0)=4-0^2=4$. Por tanto, la región está delimitada de $0$ a $2$ en el eje $x$, y de $0$ a $4-x^2$ en el eje $y$. Y se tiene la integral doble:
+
+$$\int_0^2\int_0^{4-x^2}\frac{xe^{2y}}{4-y}\,dy\,dx$$
+
+\vs
+
+Pero la primitiva de la función $F(y)=\frac{e^{2y}}{4-y}$ no es tan fácil de calcular. Es mejor cambiar el orden de integración para integrar con respecto a $x$. Entonces, se tiene que la región recorre de $0$ a $4$ en el eje $y$ y de $0$ a $\sqrt{4-y}$ en el eje $x$ (se toma la raíz positiva). Entonces se tiene la integral doble:
+
+\begin{align*} \int_0^4\int_0^{\sqrt{4-y}}\frac{xe^{2y}}{4-y}\,dx\,dy & =\int_0^4\frac{e^{2y}}{4-y}\int_0^{\sqrt{4-y}}x\,dx\,dy \\ & ={\left.\int_0^4\frac{e^{2y}}{4-y}\cdot\frac12x^2\right]}_0^{\sqrt{4-y}}\,dy \\ & =\frac12\int_0^4\frac{e^{2y}}{4-y}\cdot\left[\left(\sqrt{4-y}\right)^2-0^2\right]\,dy \\ & =\frac12\int_0^4\frac{e^{2y}}{4-y}\cdot (4-y)\,dy \\ & =\frac12\int_0^4 e^{2y}\,dy \\ & ={\left.\frac12\cdot\frac12 e^{2y}\right]}_0^4 \\ & =\frac14(e^8-1) \end{align*}
+
+\newpage
+
+\item Mediante el cambio de variable $u=y-x, v=y+x$, calcule la integral doble, donde $D$ es el trapecio con vértices $(1,1),(2,2),(4,0), (2,0)$.
+
+$$\iint_D\mathop{\rm sen}\nolimits{\left(\frac{y-x}{y+x}\right)}\,dx\,dy$$\vs
+
+\subsection*{\bf Solución}
+
+Sumando y restando las ecuaciones de cambio de variable, obtenemos las expresiones de $x$ y $y$ en términos de $u$ y $v$. Donde
+
+$$y=\frac12(v+u)\quad\wedge\quad\,x=\frac12(v-u)$$ \vs
+
+Definimos $T(u,v)=(x(u,v),y(u,v))$, con $(u,v)\in R$. Entonces $T(R)=D$, cuyo Jacobiano es \vs
+
+$$\frac{\partial(x,y)}{\partial(u,v)}=\begin{array}{|rc|} -\frac12 & \frac12 \\ \frac12 & \frac12 \end{array}=\left\lvert{-\frac14-\frac14}\right\rvert=\left\lvert{-\frac12}\right\rvert=\frac12$$
+
+\vs
+
+Aplicando la Transformación, los vértices de la región $D$ serán: \vs
+
+$$D: \left\{\begin{array}{l} (1,1)  \\  (2,2) \\ (4,0) \\ (2,0) \end{array} \right. \Longrightarrow R: \left\{\begin{array}{lcl} u=0,  &   v=2 & \Longrightarrow (0,2) \\ u=-2,  &   v=2  & \Longrightarrow (-2,2)\\ u=-4, & v=4 & \Longrightarrow (-4,4)\\ u=0, & v=4 & \Longrightarrow (0,4) \end{array}\right.$$ \vs
+
+La aplicación $T$ de la región $R$ en la región $D$, se visualiza en la siguiente figura. \vs
+
+
+\bc
+\input transf.tex
+{Transformación $T(R)=D$} \ec
+\newpage
+
+Entonces, la integral doble de la transformación $T$ será:
+
+\begin{align*} 
+\int_2^4\int_{-v}^0\mathop{\rm sen}\nolimits{\left(\frac uv\right)}\cdot \left(\frac12\right) \,du\,dv 
+& = \frac12\left.\int_2^4 -v\cdot\cos{\left(\frac uv\right)}\right]_{-v}^0\,dv \\ 
+& = -\frac12\int_2^4 v\left[\cos{0}-\cos{\left(\frac{-v}{v}\right)}\right]\,dv \\ 
+& = -\frac12\int_2^4 v(1-\cos(-1))\,dv \\ 
+& = \left.-\frac12(1-\cos(1))\cdot\frac12 v^2\right]_2^4 \\ 
+& =-\frac12(1-\cos(1))\cdot\frac12 (16-4) \\ & = \quad 3(\cos(1)-1) 
+\end{align*}
+\eenu
+\hrulefill
+\vs
+
+Fuente: \url{http://matematiquemos.blogspot.com/2017/08/ejercicios-resueltos-de-calculo.html}
+
+
+\end{document}

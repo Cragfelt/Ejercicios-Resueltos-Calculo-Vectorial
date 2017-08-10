@@ -1,0 +1,65 @@
+%Math Mode Comands
+\newcommand{\dis}{\displaystyle}
+\newcommand{\bm}{\boldmath}
+\newcommand{\degre}{\ensuremath{^\circ}}
+
+%Environments
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\bq}{\begin{equation}}
+\newcommand{\eq}{\end{equation}}
+
+\newtheorem{defi}{Definición}
+
+%Brackets & bracers
+\newcommand{\iz}{ \left\{ }
+\newcommand{\der}{ \right\} }
+\newcommand{\izp}{ \left\( }
+\newcommand{\derp}{ \right\) }
+\newcommand{\cord}{ \,]\, }
+\newcommand{\cori}{ \,[\, }
+
+%Arrows
+\newcommand{\imp}{\Rightarrow}
+\newcommand{\sii}{\Leftrightarrow}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\hra}{\hookrightarrow}
+
+%Math Functions
+\newcommand{\limite}[3]{\lim_{ #1 \rightarrow #2} #3}
+\newcommand{\sen}{\mathop{\rm sen}\nolimits}
+\newcommand{\arcsen}{\mathop{\rm arcsen}\nolimits}
+\newcommand{\arcsec}{\mathop{\rm arcsec}\nolimits}
+\newcommand{\abs}[1]{\left\lvert\,\strut#1\,\right\rvert}
+%\newcommand{\mod}{\mathop{\rm mod}\nolimits}
+
+%Personal Text commands
+\newcommand{\opc}{$(\quad)$\quad}                   %Multiple choice option
+\newcommand{\fv}[1]{\fbox{\quad\strut #1\quad}}     %Special fbox1
+\newcommand{\fvv}[1]{\fbox{\qquad\strut#1\qquad}}   %Special fbox2
+\newcommand{\comp}[2]{#1\rule{25pt}{0.4pt}\;#2}     %Short line between 2 statements
+\newcommand{\cmd}[1]{\texttt{\detokenize{#1}}$\longrightarrow #1$}  %Macro that prints latex command and its symbol (in a box)
+\newcommand{\cmdc}[1]{\fvc{\texttt{\detokenize{#1}}$\longrightarrow #1$}} %Macro that prints latex command and its symbol (in a gray box, no border)
+\newcommand{\fvc}[1]{\fcolorbox{white}{gray!10!}{\quad\strut #1\quad}}
+
+
+\newcommand{\resp}[1]{\fv{{\bf R/}\;#1.}}
+\newcommand{\col}{$\subset\hspace{-3.5mm}/\hspace{-1mm}/$}
+\newcommand{\ej}{$\diamond\diamond\diamond\diamond\diamond\diamond\diamond$}
+
+%Spaces
+\newcommand{\vs}{\vspace{5mm}}
+\newcommand{\vp}{\vspace{3mm}}
+\newcommand{\vf}{\vspace{1.5mm}}
+
+%Sets
+\newcommand{\id}{1\!\!l}                %Id operator
+\newcommand{\R}{{\bf I\!R}}             %IR set
+\newcommand{\I}{{\bf I\!I}}             %Irrationals set
+\newcommand{\Pri}{{\bf I\!P}}           %Primes set
+\newcommand{\N}{{\bf I\!N}}             %Naturals set
+\newcommand{\C}{{\bf C\!\!\!\!I\,\,}}   %Complex set
+\newcommand{\Q}{{\bf Q\!\!\!\!I\,\,}}   %Rationals set
+\newcommand{\Z}{{\bf Z\!\!Z\,\,}}       %integers set
